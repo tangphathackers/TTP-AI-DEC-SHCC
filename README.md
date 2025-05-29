@@ -25,6 +25,6 @@
 
 ```bash
 pkg install git -y
-git clone https://github.com/kawaii-ghost/ttp-decoder
-cd ttp-decoder
-chmod +x deshcc.sh
+spath=$(echo $PATH | cut -d: -f1)
+curl -sLo $spath/TTP-AI-DEC-SHCC https://github.com/tangphathackers/TTP-AI-DEC-SHCC/raw/main/TTP-AI-DEC-SHCC
+chmod +x $spath/TTP-AI-DEC-SHCC 
