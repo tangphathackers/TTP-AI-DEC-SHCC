@@ -26,5 +26,5 @@
 ```bash
 pkg install git -y
 spath=$(echo $PATH | cut -d: -f1)
-curl -sLo $spath/TTP-AI-DEC-SHCC https://github.com/tangphathackers/TTP-AI-DEC-SHCC/raw/main/TTP-AI-DEC-SHCC
-chmod +x $spath/TTP-AI-DEC-SHCC 
+curl -sLo $spath/TTP-AI-DEC-SHCC https://github.com/tangphathackers/TTP-AI-DEC-SHCC/raw/main/TTP-DEC-SHCC
+chmod +x $spath/TTP-DEC-SHCC 
