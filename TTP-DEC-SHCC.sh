@@ -1,0 +1,65 @@
+#!/bin/sh
+# TTP-AI-IEE DEC
+# https://github.com/kawaii-ghost
+# Telegram: @ttp_ai_iee_tangphat
+# Hướng dẫn giải ở termux bash deshcc.sh shc.sh
+echo "Script Giải Mã SHC Và SCC Siêu Cấp VIP"
+# Cấp quyền cho chính script
+chmod 777 "$0"
+
+# Sleep ngẫu nhiên từ 0.01 đến 0.07 giây
+sec=$(shuf -i 1-7 -n 1)
+sleep_time="0.0$sec"
+
+# Nhận đường dẫn gốc từ tham số
+for input_file in "$@"; do
+  if [ ! -f "$input_file" ]; then
+    echo "❌ File không tồn tại: $input_file"
+    continue
+  fi
+
+  # Tên file và đường dẫn gốc
+  filename=$(basename "$input_file")
+  original_dir=$(dirname "$input_file")
+
+  # Copy file về thư mục hiện tại
+  cp "$input_file" "./$filename"
+  chmod 777 "./$filename"
+
+  # Thực thi file cần giải mã ở nền
+  "./$filename" > /dev/null & child=$!
+
+  # Chờ thời gian ngẫu nhiên
+  sleep "$sleep_time"
+
+  # Kiểm tra tiến trình còn chạy không
+  if kill -0 "$child" 2>/dev/null; then
+    kill -STOP "$child"
+
+    # Tên file đầu ra
+    decoded_file="$original_dir/$filename.ttp.dec.sh"
+
+    # Cố gắng lấy từ cmdline
+    if [ -r "/proc/$child/cmdline" ]; then
+      cat "/proc/$child/cmdline" | sed 's/.*\(#!\)/\1/; $d' > "$decoded_file"
+    fi
+
+    # Nếu rỗng, thử từ fd/3
+    if [ ! -s "$decoded_file" ] && [ -r "/proc/$child/fd/3" ]; then
+      cat "/proc/$child/fd/3" >> "$decoded_file"
+    fi
+
+    kill -TERM "$child"
+  fi
+
+  # Kết quả
+  if [ -s "$decoded_file" ]; then
+    echo "✅ Đã giải mã: $decoded_file (sleep $sleep_time)"
+  else
+    echo "❌ Giải mã thất bại: $filename"
+    rm -f "$decoded_file"
+  fi
+
+  # Xoá bản sao tạm
+  rm -f "./$filename"
+done
