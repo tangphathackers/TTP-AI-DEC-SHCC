@@ -29,5 +29,7 @@ spath=$(echo $PATH | cut -d: -f1)
 curl -sLo $spath/TTP-DEC-SHCC https://github.com/tangphathackers/TTP-AI-DEC-SHCC/raw/main/TTP-DEC-SHCC
 chmod +x $spath/TTP-DEC-SHCC
 
-Sử dụng:
-TTP-DEC-SHCC /sdcard/script_shc
+---
+
+**Sử dụng:
+TTP-DEC-SHCC /sdcard/script_shc**
