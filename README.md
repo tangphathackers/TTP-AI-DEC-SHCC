@@ -18,7 +18,8 @@
 - Tự động xử lý quyền thực thi, tạo bản sao script, giải mã từ `/proc`, và lưu kết quả.
 - Tùy chỉnh sleep ngẫu nhiên để đảm bảo giải mã chính xác nhất.
 - Xuất kết quả ra file `.ttp.dec.sh` tại thư mục chứa script gốc.
-
+- Sử dụng:
+TTP-DEC-SHCC /sdcard/script_shc
 ---
 
 ## 📦 Cài đặt
@@ -28,8 +29,3 @@ pkg install git -y
 spath=$(echo $PATH | cut -d: -f1)
 curl -sLo $spath/TTP-DEC-SHCC https://github.com/tangphathackers/TTP-AI-DEC-SHCC/raw/main/TTP-DEC-SHCC
 chmod +x $spath/TTP-DEC-SHCC
-
----
-
-**Sử dụng:
-TTP-DEC-SHCC /sdcard/script_shc**
