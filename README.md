@@ -8,7 +8,7 @@
 - 📌 **Tên công cụ:** TTP-AI-IEE DEC (SHC & SCC Decryptor)
 - 📅 **Phiên bản:** 1.0
 - 👤 **Tác giả:** [@ttp_ai_iee_tangphat](https://t.me/ttp_ai_iee_tangphat)
-- 🌐 **GitHub:** [https://github.com/kawaii-ghost](https://github.com/kawaii-ghost)
+- 🌐 **GitHub Support:** [https://github.com/kawaii-ghost](https://github.com/kawaii-ghost)
 
 ---
 
